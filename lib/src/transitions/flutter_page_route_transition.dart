@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_page_transitions/src/transitions/flutter_route_transition_mixin.dart';
+import 'package:flutter_page_transition_plus/src/transitions/flutter_route_transition_mixin.dart';
 
 class FlutterPageRouteTransition<T> extends PageRoute<T>
     with FlutterRouteTransitionMixin<T> {

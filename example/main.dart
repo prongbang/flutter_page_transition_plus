@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_page_transitions/flutter_page_transitions.dart';
+import 'package:flutter_page_transition_plus/flutter_page_transition.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,12 +13,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: const NextPage(),
       onGenerateRoute: (settings) => {
-        "/next": FlutterPageTransitions.next(settings, const NextPage()),
-        "/zoom": FlutterPageTransitions.zoom(settings, const NextPage()),
+        "/next": FlutterPageTransition.next(settings, const NextPage()),
+        "/zoom": FlutterPageTransition.zoom(settings, const NextPage()),
         "/open/upwards":
-            FlutterPageTransitions.openUpwards(settings, const NextPage()),
+            FlutterPageTransition.openUpwards(settings, const NextPage()),
         "/fade/upwards":
-            FlutterPageTransitions.fadeUpwards(settings, const NextPage()),
+            FlutterPageTransition.fadeUpwards(settings, const NextPage()),
         "/custom": FlutterPageRouteTransition(
           builder: (_) => const NextPage(),
           settings: settings,

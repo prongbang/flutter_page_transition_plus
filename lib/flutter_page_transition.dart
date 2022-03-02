@@ -1,15 +1,15 @@
-library flutter_page_transitions;
+library flutter_page_transitionx;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_page_transitions/src/transitions/flutter_page_route_transition.dart';
+import 'package:flutter_page_transition_plus/src/transitions/flutter_page_route_transition.dart';
 
 export 'src/transitions/flutter_page_route_transition.dart';
 export 'src/transitions/flutter_route_transition_mixin.dart';
 
-class FlutterPageTransitions {
+class FlutterPageTransition {
   /// Usage:
   /// onGenerateRoute: (settings) => {
-  ///   "/next": FlutterPageTransitions.next(settings, NextPage());
+  ///   "/next": FlutterPageTransition.next(settings, NextPage());
   /// }
   static Route<dynamic> next(RouteSettings settings, Widget widget) {
     return _pageRouteTransition(
@@ -21,7 +21,7 @@ class FlutterPageTransitions {
 
   /// Usage:
   /// onGenerateRoute: (settings) => {
-  ///   "/zoom": FlutterPageTransitions.zoom(settings, NextPage());
+  ///   "/zoom": FlutterPageTransition.zoom(settings, NextPage());
   /// }
   static Route<dynamic> zoom(RouteSettings settings, Widget widget) {
     return _pageRouteTransition(
@@ -33,7 +33,7 @@ class FlutterPageTransitions {
 
   /// Usage:
   /// onGenerateRoute: (settings) => {
-  ///   "/open/upwards": FlutterPageTransitions.openUpwards(settings, NextPage());
+  ///   "/open/upwards": FlutterPageTransition.openUpwards(settings, NextPage());
   /// }
   static Route<dynamic> openUpwards(RouteSettings settings, Widget widget) {
     return _pageRouteTransition(
@@ -45,7 +45,7 @@ class FlutterPageTransitions {
 
   /// Usage:
   /// onGenerateRoute: (settings) => {
-  ///   "/fade/upwards": FlutterPageTransitions.fadeUpwards(settings, NextPage());
+  ///   "/fade/upwards": FlutterPageTransition.fadeUpwards(settings, NextPage());
   /// }
   static Route<dynamic> fadeUpwards(RouteSettings settings, Widget widget) {
     return _pageRouteTransition(

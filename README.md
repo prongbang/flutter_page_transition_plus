@@ -1,29 +1,29 @@
-# flutter_page_transitions
+# flutter_page_transition_plus
 
 ## Feature
 
 - Next Transition
 
 ```dart
-FlutterPageTransitions.next(settings, NextPage());
+FlutterPageTransition.next(settings, NextPage());
 ```
 
 - Zoom Transition
 
 ```dart
-FlutterPageTransitions.zoom(settings, NextPage());
+FlutterPageTransition.zoom(settings, NextPage());
 ```
 
 - Open Upwards Transition
 
 ```dart
-FlutterPageTransitions.openUpwards(settings, NextPage());
+FlutterPageTransition.openUpwards(settings, NextPage());
 ```
 
 - Fade Upwards Transition
 
 ```dart
-FlutterPageTransitions.fadeUpwards(settings, NextPage());
+FlutterPageTransition.fadeUpwards(settings, NextPage());
 ```
 
 - Custom Transition
@@ -53,7 +53,7 @@ FlutterPageRouteTransition(
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:flutter_page_transitions/flutter_page_transitions.dart';
+import 'package:flutter_page_transition_plus/flutter_page_transition.dart';
 
 class NextPage extends StatelessWidget { }
 
@@ -63,10 +63,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: const NextPage(),
       onGenerateRoute: (settings) => {
-        "/next": FlutterPageTransitions.next(settings, NextPage()),
-        "/zoom": FlutterPageTransitions.zoom(settings, NextPage()),
-        "/open/upwards": FlutterPageTransitions.openUpwards(settings, NextPage()),
-        "/fade/upwards": FlutterPageTransitions.fadeUpwards(settings, NextPage()),
+        "/next": FlutterPageTransition.next(settings, NextPage()),
+        "/zoom": FlutterPageTransition.zoom(settings, NextPage()),
+        "/open/upwards": FlutterPageTransition.openUpwards(settings, NextPage()),
+        "/fade/upwards": FlutterPageTransition.fadeUpwards(settings, NextPage()),
         "/custom": FlutterPageRouteTransition(
           builder: (_) => NextPage(),
           settings: settings,
