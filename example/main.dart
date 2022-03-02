@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_page_transition_plus/flutter_page_transition.dart';
+import 'package:flutter_page_transition_plus/flutter_page_transition_plus.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,5 +1,17 @@
 # flutter_page_transition_plus
 
+Flutter custom page transitions builder
+
+## Get Started
+
+It is really easy to use!
+You should ensure that you add the `flutter_page_transition_plus` as a dependency in your flutter project.
+
+```yaml
+dependencies:
+  flutter_page_transition_plus: "^1.0.0"
+```
+
 ## Feature
 
 - Next Transition
@@ -53,7 +65,7 @@ FlutterPageRouteTransition(
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:flutter_page_transition_plus/flutter_page_transition.dart';
+import 'package:flutter_page_transition_plus/flutter_page_transition_plus.dart';
 
 class NextPage extends StatelessWidget { }
 

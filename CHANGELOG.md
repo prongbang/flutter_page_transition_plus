@@ -1,3 +1,3 @@
 ## 1.0.0
 
-* Flutter custom page transitions
+* Flutter custom page transitions builder
