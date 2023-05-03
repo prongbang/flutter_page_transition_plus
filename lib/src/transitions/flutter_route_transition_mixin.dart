@@ -10,6 +10,10 @@ mixin FlutterRouteTransitionMixin<T> on PageRoute<T> {
   @protected
   PageTransitionsBuilder pageTransitionsBuilder();
 
+  /// Builds the can transition of the page.
+  @protected
+  bool customCanTransitionTo(TransitionRoute<dynamic> nextRoute);
+
   @override
   Duration get transitionDuration => const Duration(milliseconds: 300);
 
@@ -22,8 +26,7 @@ mixin FlutterRouteTransitionMixin<T> on PageRoute<T> {
   @override
   bool canTransitionTo(TransitionRoute<dynamic> nextRoute) {
     // Don't perform outgoing animation if the next route is a fullscreen dialog.
-    return (nextRoute is FlutterRouteTransitionMixin &&
-            !nextRoute.fullscreenDialog) ||
+    return customCanTransitionTo(nextRoute) ||
         (nextRoute is CupertinoRouteTransitionMixin &&
             !nextRoute.fullscreenDialog) ||
         (nextRoute is MaterialRouteTransitionMixin &&

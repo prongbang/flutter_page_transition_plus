@@ -11,11 +11,16 @@ class FlutterPageTransition {
   /// onGenerateRoute: (settings) => {
   ///   "/next": FlutterPageTransition.next(settings, NextPage());
   /// }
-  static Route<dynamic> next(RouteSettings settings, Widget widget) {
+  static Route<dynamic> next(
+    RouteSettings settings,
+    Widget widget, {
+    bool performOutgoingAnimation = true,
+  }) {
     return _pageRouteTransition(
       widget: widget,
       settings: settings,
       transitionsBuilder: const CupertinoPageTransitionsBuilder(),
+      performOutgoingAnimation: performOutgoingAnimation,
     );
   }
 
@@ -23,11 +28,16 @@ class FlutterPageTransition {
   /// onGenerateRoute: (settings) => {
   ///   "/zoom": FlutterPageTransition.zoom(settings, NextPage());
   /// }
-  static Route<dynamic> zoom(RouteSettings settings, Widget widget) {
+  static Route<dynamic> zoom(
+    RouteSettings settings,
+    Widget widget, {
+    bool performOutgoingAnimation = true,
+  }) {
     return _pageRouteTransition(
       widget: widget,
       settings: settings,
       transitionsBuilder: const ZoomPageTransitionsBuilder(),
+      performOutgoingAnimation: performOutgoingAnimation,
     );
   }
 
@@ -35,11 +45,16 @@ class FlutterPageTransition {
   /// onGenerateRoute: (settings) => {
   ///   "/open/upwards": FlutterPageTransition.openUpwards(settings, NextPage());
   /// }
-  static Route<dynamic> openUpwards(RouteSettings settings, Widget widget) {
+  static Route<dynamic> openUpwards(
+    RouteSettings settings,
+    Widget widget, {
+    bool performOutgoingAnimation = true,
+  }) {
     return _pageRouteTransition(
       widget: widget,
       settings: settings,
       transitionsBuilder: const OpenUpwardsPageTransitionsBuilder(),
+      performOutgoingAnimation: performOutgoingAnimation,
     );
   }
 
@@ -47,11 +62,34 @@ class FlutterPageTransition {
   /// onGenerateRoute: (settings) => {
   ///   "/fade/upwards": FlutterPageTransition.fadeUpwards(settings, NextPage());
   /// }
-  static Route<dynamic> fadeUpwards(RouteSettings settings, Widget widget) {
+  static Route<dynamic> fadeUpwards(
+    RouteSettings settings,
+    Widget widget, {
+    bool performOutgoingAnimation = true,
+  }) {
     return _pageRouteTransition(
       widget: widget,
       settings: settings,
       transitionsBuilder: const FadeUpwardsPageTransitionsBuilder(),
+      performOutgoingAnimation: performOutgoingAnimation,
+    );
+  }
+
+  /// Usage:
+  /// onGenerateRoute: (settings) => {
+  ///   "/custom": FlutterPageTransition.custom(settings, NextPage(), CustomPageTransitionsBuilder());
+  /// }
+  static Route<dynamic> custom(
+    RouteSettings settings,
+    Widget widget,
+    PageTransitionsBuilder transitionsBuilder, {
+    bool performOutgoingAnimation = true,
+  }) {
+    return _pageRouteTransition(
+      widget: widget,
+      settings: settings,
+      transitionsBuilder: transitionsBuilder,
+      performOutgoingAnimation: performOutgoingAnimation,
     );
   }
 
@@ -59,10 +97,12 @@ class FlutterPageTransition {
     required RouteSettings settings,
     required Widget widget,
     required PageTransitionsBuilder transitionsBuilder,
+    bool performOutgoingAnimation = true,
   }) =>
       FlutterPageRouteTransition(
         builder: (_) => widget,
         settings: settings,
         transitionsBuilder: transitionsBuilder,
+        performOutgoingAnimation: performOutgoingAnimation,
       );
 }

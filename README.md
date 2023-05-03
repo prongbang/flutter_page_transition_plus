@@ -9,7 +9,7 @@ You should ensure that you add the `flutter_page_transition_plus` as a dependenc
 
 ```yaml
 dependencies:
-  flutter_page_transition_plus: "^1.0.0"
+  flutter_page_transition_plus: "^1.0.2"
 ```
 
 ## Feature
@@ -54,11 +54,7 @@ class CustomPageTransitionsBuilder extends PageTransitionsBuilder {
   }
 }
 
-FlutterPageRouteTransition(
-    builder: (_) => const NextPage(),
-    settings: settings,
-    transitionsBuilder: const CustomPageTransitionsBuilder(),
-);
+FlutterPageTransition.custom(settings, NextPage(), CustomPageTransitionsBuilder());
 ```
 
 ## Usage
@@ -79,11 +75,7 @@ class MyApp extends StatelessWidget {
         "/zoom": FlutterPageTransition.zoom(settings, NextPage()),
         "/open/upwards": FlutterPageTransition.openUpwards(settings, NextPage()),
         "/fade/upwards": FlutterPageTransition.fadeUpwards(settings, NextPage()),
-        "/custom": FlutterPageRouteTransition(
-          builder: (_) => NextPage(),
-          settings: settings,
-          transitionsBuilder: CustomPageTransitionsBuilder(),
-        ),
+        "/custom": FlutterPageTransition.custom(settings, NextPage(), CustomPageTransitionsBuilder()),
       }[settings.name],
     );
   }

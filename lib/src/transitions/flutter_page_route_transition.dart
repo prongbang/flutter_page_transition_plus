@@ -11,6 +11,7 @@ class FlutterPageRouteTransition<T> extends PageRoute<T>
     required this.transitionsBuilder,
     RouteSettings? settings,
     this.maintainState = true,
+    this.performOutgoingAnimation = true,
     bool fullscreenDialog = false,
   }) : super(settings: settings, fullscreenDialog: fullscreenDialog) {
     assert(opaque);
@@ -21,6 +22,9 @@ class FlutterPageRouteTransition<T> extends PageRoute<T>
 
   /// Builds the transition od the page.
   final PageTransitionsBuilder transitionsBuilder;
+
+  /// Enabled perform outgoing animation if the next route is a fullscreen dialog.
+  bool performOutgoingAnimation;
 
   @override
   Widget buildContent(BuildContext context) => builder(context);
@@ -33,4 +37,13 @@ class FlutterPageRouteTransition<T> extends PageRoute<T>
 
   @override
   String get debugLabel => '${super.debugLabel}(${settings.name})';
+
+  @override
+  bool customCanTransitionTo(TransitionRoute<dynamic> nextRoute) {
+    if (performOutgoingAnimation) {
+      return (nextRoute is FlutterRouteTransitionMixin &&
+          !nextRoute.fullscreenDialog);
+    }
+    return false;
+  }
 }
