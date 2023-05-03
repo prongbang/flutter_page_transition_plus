@@ -5,6 +5,7 @@ import 'package:flutter_page_transition_plus/src/transitions/flutter_page_route_
 
 export 'src/transitions/flutter_page_route_transition.dart';
 export 'src/transitions/flutter_route_transition_mixin.dart';
+export 'src/transitions/to_top_page_transitions_builder.dart';
 
 class FlutterPageTransition {
   /// Usage:
